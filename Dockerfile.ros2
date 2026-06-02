@@ -1,0 +1,99 @@
+FROM osrf/ros:humble-desktop
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+SHELL ["/bin/bash", "-c"]
+
+# -----------------------------------------------------------------------------
+# Base dependencies
+# -----------------------------------------------------------------------------
+
+RUN apt update && apt install -y \
+    git \
+    cmake \
+    build-essential \
+    curl \
+    wget \
+    python3-pip \
+    python3-rosdep \
+    python3-vcstool \
+    libtinyxml2-dev \
+    libasio-dev \
+    libssl-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# -----------------------------------------------------------------------------
+# Install colcon via pip (more reliable)
+# -----------------------------------------------------------------------------
+
+RUN pip3 install -U \
+    colcon-common-extensions
+
+# -----------------------------------------------------------------------------
+# rosdep
+# -----------------------------------------------------------------------------
+
+RUN rosdep init || true
+RUN rosdep update
+
+# -----------------------------------------------------------------------------
+# Build Micro XRCE DDS Agent
+# PX4 requires v2.x (NOT v3.x)
+# -----------------------------------------------------------------------------
+
+WORKDIR /opt
+
+RUN git clone -b v2.4.3 \
+    https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
+
+WORKDIR /opt/Micro-XRCE-DDS-Agent
+
+RUN mkdir build
+
+WORKDIR /opt/Micro-XRCE-DDS-Agent/build
+
+RUN cmake .. && \
+    make -j$(nproc) && \
+    make install && \
+    ldconfig
+
+# -----------------------------------------------------------------------------
+# ROS2 workspace
+# -----------------------------------------------------------------------------
+
+WORKDIR /root/ws/src
+
+RUN git clone https://github.com/PX4/px4_msgs.git
+
+RUN git clone https://github.com/PX4/px4_ros_com.git
+
+# -----------------------------------------------------------------------------
+# Install ROS dependencies
+# -----------------------------------------------------------------------------
+
+WORKDIR /root/ws
+
+RUN source /opt/ros/humble/setup.bash && \
+    rosdep install \
+    --from-paths src \
+    --ignore-src \
+    -r -y
+
+# -----------------------------------------------------------------------------
+# Build workspace
+# -----------------------------------------------------------------------------
+
+RUN source /opt/ros/humble/setup.bash && \
+    colcon build
+
+# -----------------------------------------------------------------------------
+# Auto-source ROS
+# -----------------------------------------------------------------------------
+
+RUN echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc
+
+RUN echo "source /root/ws/install/setup.bash" >> /root/.bashrc
+
+WORKDIR /root/ws
+
+CMD ["/bin/bash"]
