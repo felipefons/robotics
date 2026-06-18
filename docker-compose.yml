@@ -9,7 +9,7 @@ services:
       - PX4_SIM_MODEL=gz_x500_vision
       
       # 1. Name of your world file (minus the .sdf extension)
-      - PX4_GZ_WORLD=baylands
+      - PX4_GZ_WORLD=default
       
       # 2. Tell Gazebo to look inside the specific folders we are mounting below
       - GZ_SIM_RESOURCE_PATH=/tmp/custom_gz/worlds:/tmp/custom_gz/models

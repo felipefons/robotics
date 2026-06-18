@@ -1,116 +1,56 @@
-# PX4 + Gazebo + ROS2 in Docker
+Autonomous Drone Simulation (PX4 + ROS 2 + Gazebo)
 
-In Fedora 44 + Gnome 50.1. Need docker already installed.
+This repository contains a containerized simulation environment for autonomous drone operations and computer vision tasks using PX4 Autopilot, ROS 2 Humble, and Gazebo Sim.
 
-## Download and Run QGroundControl
+The architecture isolates core codebase frameworks while seamlessly mounting custom simulation assets and workspace packages.
+Prerequisites
 
-Use AppImage is the fastes way.
+Before launching, ensure your host machine has the following dependencies installed:
 
-[QGroundControl](https://docs.qgroundcontrol.com/Stable_V5.0/en/qgc-user-guide/getting_started/download_and_install.html)
-## X11 / Wayland compatibility
+    Ubuntu 22.04 (or compatible Linux distribution)
 
-Fedora 44 defaults to Wayland.
+    Docker & Docker Compose V2
 
-Gazebo GUI inside Docker works more reliably with X11 compatibility enabled. If your distro works in X11 `xorg-x11-xauth xhost` shouldn't be needed.
+    NVIDIA Container Toolkit (if using hardware acceleration)
 
-Install X11 utilities:
+    xhost utility (for X11/Wayland GUI rendering)
 
-```bash
-sudo dnf install xorg-x11-xauth xhost
-```
-Allow Docker GUI access:
+Setup Instructions
 
-```bash
-xhost +local:docker
-```
+Follow these steps to initialize the environment on your local machine:
+1. Clone this Project Repository
+Bash
 
-Then force Qt/X11 compatibility:
+git clone <https://github.com/felipefons/robotics.git>
+cd your-project-root
 
-```bash
-export QT_QPA_PLATFORM=xcb
-```
-You can add that to your `.bashrc`.
+2. Clone the PX4 Autopilot Dependency
 
-## Deploy the docker container
+Clone the official PX4 firmware and initialize its mandatory simulation submodules:
+Bash
 
-```bash
-docker run --rm -it \
-    --network=host \
-    --env=DISPLAY \
-    --env=QT_QPA_PLATFORM=xcb \
-    --env=QT_X11_NO_MITSHM=1 \
-    -v /tmp/.X11-unix:/tmp/.X11-unix:rw,Z \
-    -e PX4_SIM_MODEL=gz_x500 \
-    -e PX4_GZ_WORLD=default \
-    -e PX4_UXRCE_DDS_PORT=8888 \
-    px4io/px4-sitl-gazebo:latest
-```
+git clone https://github.com/PX4/PX4-Autopilot.git
+cd PX4-Autopilot
+git submodule update --init --recursive
+cd ..
 
-## ROS2 container
+3. Configure Permissions
 
-# Build the container
+Give your host user full read/write ownership over the external PX4 folder and make the deployment script executable:
+Bash
 
-```bash
-docker build -f Dockerfile.ros2 -t px4-ros2-humble .
-```
+sudo chown -R $USER:$USER ./PX4-Autopilot
+chmod +x your_run_script.sh
 
-# Run the ROS2 container
+How to Launch
 
-```bash
-docker run --rm -it \
-    --name ROS2-humble \
-    --network=host \
-    px4-ros2-humble
-```
+Simply run the orchestration bash script. This script configures your local display environment (X11/Wayland), syncs the custom tracking worlds and models, boots up the containers, and launches QGroundControl:
+Bash
 
-# Start DDS agent
+./your_run_script.sh
 
-```bash
-MicroXRCEAgent udp4 -p 8888
-```
+    To interact with the drone: The script will automatically attach your terminal to the live interactive PX4 nsh prompt.
 
-Then verify in another shell:
+    To disconnect safely: Press Ctrl+C to detach from the terminal view without shutting down the simulation.
 
-```bash
-docker exec -it ROS2-humble bash
-```
-
-then:
-```bash
-ros2 topic list
-```
-
-You should see
-```bash
-/fmu/out/vehicle_odometry
-/fmu/out/vehicle_status
-/fmu/in/offboard_control_mode
-```
-## Deploy both containers with Docker Compose
-
-Use the compose file in this repository:
-
-```bash
-docker compose up --build
-```
-
-If you want the PX4 interactive prompt, start the stack in the background and attach to the PX4 service:
-
-```bash
-docker compose up -d
-docker compose attach px4
-```
-
-The compose file already keeps `tty` and `stdin_open` enabled for the PX4 service, but `docker compose up` itself is still log-oriented. Attaching to `px4` is the closest equivalent to the old `docker run -it` workflow.
-
-This starts both services in one file:
-
-* `px4`: PX4 + Gazebo with the GUI/X11 settings.
-* `ros2`: the Humble workspace container, which starts `MicroXRCEAgent udp4 -p 8888`.
-
-If you want a shell inside the ROS2 container while the agent is running, use:
-
-```bash
-docker compose exec ros2 bash
-```
-
+    To stop the entire stack: Run docker compose down in your project root.
