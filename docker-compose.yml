@@ -19,9 +19,8 @@ services:
     stdin_open: true
 
   ros2:
-    build:
-      context: .
-      dockerfile: Dockerfile.ros2
+    # Swap out 'build:' and 'dockerfile:' for your live Docker Hub image link!
+    image: fefon934/ros2-gazebo-px4:latest
     network_mode: host
     # This block handles sourcing and spinning up the DDS bridge automatically
     command: >
