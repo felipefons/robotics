@@ -26,7 +26,7 @@ docker compose up --build -d
 
 # 2. Wait for PX4 to boot and initialize its network ports
 echo "Waiting for PX4 simulation to spin up..."
-sleep 5 
+sleep 10
 
 # 3. Check if your qgroundcontrol shortcut exists and launch it
 if command -v qgroundcontrol >/dev/null 2>&1; then

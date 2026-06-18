@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<sdf version="1.9">
+  <model name="hexagono_5">
+    <static>true</static>
+    <link name="link">
+      <collision name="collision">
+        <geometry><plane><normal>0 0 1</normal><size>1.5 1.5</size></plane></geometry>
+      </collision>
+      <visual name="visual">
+        <geometry><plane><normal>0 0 1</normal><size>1.5 1.5</size></plane></geometry>
+        <material>
+          <ambient>0 1 1 1</ambient>
+          <diffuse>0 1 1 1</diffuse>
+        </material>
+      </visual>
+      <visual name="text_visual">
+        <pose>0 0 0.005 0 0 0</pose>
+        <geometry><plane><normal>0 0 1</normal><size>0.8 0.8</size></plane></geometry>
+        <plugin filename="gz-sim-label-system" name="gz::sim::systems::Label">
+          <text>5</text>
+          <font_size>64</font_size>
+          <color>0 0 0 1</color>
+        </plugin>
+      </visual>
+    </link>
+  </model>
+</sdf>

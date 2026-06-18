@@ -3,32 +3,35 @@ services:
     image: px4io/px4-sitl-gazebo:latest
     network_mode: host
     environment:
-      DISPLAY: ${DISPLAY}
-      QT_QPA_PLATFORM: xcb
-      QT_X11_NO_MITSHM: "1"
-      PX4_SIM_MODEL: gz_x500
-      # Change "default" to your custom world filename if you want it baked in by default
-      PX4_GZ_WORLD: default 
-      PX4_UXRCE_DDS_PORT: "8888"
+      - DISPLAY=${DISPLAY}
+      - QT_QPA_PLATFORM=xcb
+      - QT_X11_NO_MITSHM=1
+      - PX4_SIM_MODEL=gz_x500
+      
+      # 1. Name of your world file (minus the .sdf extension)
+      - PX4_GZ_WORLD=bouncing
+      
+      # 2. Tell Gazebo to look inside the specific folders we are mounting below
+      - GZ_SIM_RESOURCE_PATH=/tmp/custom_gz/worlds:/tmp/custom_gz/models
+      
+      - PX4_UXRCE_DDS_PORT=8888
     volumes:
-      # Allows Gazebo to push the 3D window to your Ubuntu desktop
       - /tmp/.X11-unix:/tmp/.X11-unix:rw,Z
-      # CRITICAL: This links your local repository edits and custom worlds into the container!
-      - ./PX4-Autopilot:/home/robotics/PX4-Autopilot
+      
+      # 3. FIX: Mount ONLY your custom simulation folders to an isolated path inside the container
+      - ./PX4-Autopilot/Tools/simulation/gz/worlds:/tmp/custom_gz/worlds
+      - ./PX4-Autopilot/Tools/simulation/gz/models:/tmp/custom_gz/models
     tty: true
     stdin_open: true
 
   ros2:
-    # Swap out 'build:' and 'dockerfile:' for your live Docker Hub image link!
     image: fefon934/ros2-gazebo-px4:latest
     network_mode: host
-    # This block handles sourcing and spinning up the DDS bridge automatically
     command: >
       bash -lc "source /opt/ros/humble/setup.bash &&
       source /root/ws/install/setup.bash &&
       exec MicroXRCEAgent udp4 -p 8888"
     volumes:
-      # Maps your local ROS2 workspace code into the container so you don't lose your work
       - ./ros2_ws:/root/ws/src/your_custom_packages
     tty: true
     stdin_open: true
