@@ -1,0 +1,36 @@
+[0.000000] (-) TimerEvent: {}
+[0.000171] (-) JobUnselected: {'identifier': 'px4_msgs'}
+[0.000396] (custom_control_pkg) JobQueued: {'identifier': 'custom_control_pkg', 'dependencies': OrderedDict([('px4_msgs', '/root/ws/install/px4_msgs')])}
+[0.000417] (custom_control_pkg) JobStarted: {'identifier': 'custom_control_pkg'}
+[0.099868] (-) TimerEvent: {}
+[0.200065] (-) TimerEvent: {}
+[0.300513] (-) TimerEvent: {}
+[0.305242] (custom_control_pkg) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/custom_control_pkg', 'build', '--build-base', '/root/ws/build/custom_control_pkg/build', 'install', '--record', '/root/ws/build/custom_control_pkg/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/root/ws/src/custom_control_pkg', 'env': {'HOSTNAME': 'felipe-B650E', 'SHLVL': '0', 'LD_LIBRARY_PATH': '/root/ws/install/px4_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/root', 'OLDPWD': '/root/ws', 'ROS_PYTHON_VERSION': '3', 'ROS_DISTRO': 'humble', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'LANG': 'C.UTF-8', 'AMENT_PREFIX_PATH': '/root/ws/install/px4_msgs:/opt/ros/humble', 'DEBIAN_FRONTEND': 'noninteractive', 'PWD': '/root/ws/build/custom_control_pkg', 'QT_QPA_PLATFORM': 'xcb', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/root/ws/build/custom_control_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/ws/install/custom_control_pkg/lib/python3.10/site-packages:/root/ws/install/px4_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/root/ws/install/px4_msgs'}, 'shell': False}
+[0.400596] (-) TimerEvent: {}
+[0.423298] (custom_control_pkg) StdoutLine: {'line': b'running egg_info\n'}
+[0.423651] (custom_control_pkg) StdoutLine: {'line': b'writing ../../build/custom_control_pkg/custom_control_pkg.egg-info/PKG-INFO\n'}
+[0.423797] (custom_control_pkg) StdoutLine: {'line': b'writing dependency_links to ../../build/custom_control_pkg/custom_control_pkg.egg-info/dependency_links.txt\n'}
+[0.423926] (custom_control_pkg) StdoutLine: {'line': b'writing entry points to ../../build/custom_control_pkg/custom_control_pkg.egg-info/entry_points.txt\n'}
+[0.424032] (custom_control_pkg) StdoutLine: {'line': b'writing requirements to ../../build/custom_control_pkg/custom_control_pkg.egg-info/requires.txt\n'}
+[0.424307] (custom_control_pkg) StdoutLine: {'line': b'writing top-level names to ../../build/custom_control_pkg/custom_control_pkg.egg-info/top_level.txt\n'}
+[0.425053] (custom_control_pkg) StdoutLine: {'line': b"reading manifest file '../../build/custom_control_pkg/custom_control_pkg.egg-info/SOURCES.txt'\n"}
+[0.425584] (custom_control_pkg) StdoutLine: {'line': b"writing manifest file '../../build/custom_control_pkg/custom_control_pkg.egg-info/SOURCES.txt'\n"}
+[0.425667] (custom_control_pkg) StdoutLine: {'line': b'running build\n'}
+[0.425729] (custom_control_pkg) StdoutLine: {'line': b'running build_py\n'}
+[0.425923] (custom_control_pkg) StdoutLine: {'line': b'copying custom_control_pkg/controller_test.py -> /root/ws/build/custom_control_pkg/build/lib/custom_control_pkg\n'}
+[0.426237] (custom_control_pkg) StdoutLine: {'line': b'running install\n'}
+[0.426582] (custom_control_pkg) StdoutLine: {'line': b'running install_lib\n'}
+[0.426971] (custom_control_pkg) StdoutLine: {'line': b'copying /root/ws/build/custom_control_pkg/build/lib/custom_control_pkg/controller_test.py -> /root/ws/install/custom_control_pkg/lib/python3.10/site-packages/custom_control_pkg\n'}
+[0.427485] (custom_control_pkg) StdoutLine: {'line': b'byte-compiling /root/ws/install/custom_control_pkg/lib/python3.10/site-packages/custom_control_pkg/controller_test.py to controller_test.cpython-310.pyc\n'}
+[0.427735] (custom_control_pkg) StdoutLine: {'line': b'running install_data\n'}
+[0.427809] (custom_control_pkg) StdoutLine: {'line': b'running install_egg_info\n'}
+[0.428853] (custom_control_pkg) StdoutLine: {'line': b"removing '/root/ws/install/custom_control_pkg/lib/python3.10/site-packages/custom_control_pkg-0.0.1-py3.10.egg-info' (and everything under it)\n"}
+[0.429099] (custom_control_pkg) StdoutLine: {'line': b'Copying ../../build/custom_control_pkg/custom_control_pkg.egg-info to /root/ws/install/custom_control_pkg/lib/python3.10/site-packages/custom_control_pkg-0.0.1-py3.10.egg-info\n'}
+[0.429699] (custom_control_pkg) StdoutLine: {'line': b'running install_scripts\n'}
+[0.440834] (custom_control_pkg) StdoutLine: {'line': b'Installing run_bypass_test script to /root/ws/install/custom_control_pkg/lib/custom_control_pkg\n'}
+[0.440949] (custom_control_pkg) StdoutLine: {'line': b'Installing run_lqr script to /root/ws/install/custom_control_pkg/lib/custom_control_pkg\n'}
+[0.441032] (custom_control_pkg) StdoutLine: {'line': b'Installing run_pid script to /root/ws/install/custom_control_pkg/lib/custom_control_pkg\n'}
+[0.441226] (custom_control_pkg) StdoutLine: {'line': b"writing list of installed files to '/root/ws/build/custom_control_pkg/install.log'\n"}
+[0.452534] (custom_control_pkg) CommandEnded: {'returncode': 0}
+[0.459504] (custom_control_pkg) JobEnded: {'identifier': 'custom_control_pkg', 'rc': 0}
+[0.459881] (-) EventReactorShutdown: {}

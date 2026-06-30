@@ -1,0 +1,5 @@
+[console_scripts]
+run_bypass_test = custom_control_pkg.master_runner:main
+run_lqr = custom_control_pkg.master_runner:main
+run_pid = custom_control_pkg.master_runner:main
+

@@ -1,0 +1,46 @@
+running egg_info
+creating ../../build/custom_control_pkg/custom_control_pkg.egg-info
+writing ../../build/custom_control_pkg/custom_control_pkg.egg-info/PKG-INFO
+writing dependency_links to ../../build/custom_control_pkg/custom_control_pkg.egg-info/dependency_links.txt
+writing entry points to ../../build/custom_control_pkg/custom_control_pkg.egg-info/entry_points.txt
+writing requirements to ../../build/custom_control_pkg/custom_control_pkg.egg-info/requires.txt
+writing top-level names to ../../build/custom_control_pkg/custom_control_pkg.egg-info/top_level.txt
+writing manifest file '../../build/custom_control_pkg/custom_control_pkg.egg-info/SOURCES.txt'
+reading manifest file '../../build/custom_control_pkg/custom_control_pkg.egg-info/SOURCES.txt'
+writing manifest file '../../build/custom_control_pkg/custom_control_pkg.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /root/ws/build/custom_control_pkg/build
+creating /root/ws/build/custom_control_pkg/build/lib
+creating /root/ws/build/custom_control_pkg/build/lib/custom_control_pkg
+copying custom_control_pkg/controller_lqr.py -> /root/ws/build/custom_control_pkg/build/lib/custom_control_pkg
+copying custom_control_pkg/__init__.py -> /root/ws/build/custom_control_pkg/build/lib/custom_control_pkg
+copying custom_control_pkg/master_runner.py -> /root/ws/build/custom_control_pkg/build/lib/custom_control_pkg
+copying custom_control_pkg/controller_test.py -> /root/ws/build/custom_control_pkg/build/lib/custom_control_pkg
+copying custom_control_pkg/controller_pid.py -> /root/ws/build/custom_control_pkg/build/lib/custom_control_pkg
+running install
+running install_lib
+creating /root/ws/install/custom_control_pkg/lib/python3.10/site-packages/custom_control_pkg
+copying /root/ws/build/custom_control_pkg/build/lib/custom_control_pkg/controller_lqr.py -> /root/ws/install/custom_control_pkg/lib/python3.10/site-packages/custom_control_pkg
+copying /root/ws/build/custom_control_pkg/build/lib/custom_control_pkg/__init__.py -> /root/ws/install/custom_control_pkg/lib/python3.10/site-packages/custom_control_pkg
+copying /root/ws/build/custom_control_pkg/build/lib/custom_control_pkg/master_runner.py -> /root/ws/install/custom_control_pkg/lib/python3.10/site-packages/custom_control_pkg
+copying /root/ws/build/custom_control_pkg/build/lib/custom_control_pkg/controller_test.py -> /root/ws/install/custom_control_pkg/lib/python3.10/site-packages/custom_control_pkg
+copying /root/ws/build/custom_control_pkg/build/lib/custom_control_pkg/controller_pid.py -> /root/ws/install/custom_control_pkg/lib/python3.10/site-packages/custom_control_pkg
+byte-compiling /root/ws/install/custom_control_pkg/lib/python3.10/site-packages/custom_control_pkg/controller_lqr.py to controller_lqr.cpython-310.pyc
+byte-compiling /root/ws/install/custom_control_pkg/lib/python3.10/site-packages/custom_control_pkg/__init__.py to __init__.cpython-310.pyc
+byte-compiling /root/ws/install/custom_control_pkg/lib/python3.10/site-packages/custom_control_pkg/master_runner.py to master_runner.cpython-310.pyc
+byte-compiling /root/ws/install/custom_control_pkg/lib/python3.10/site-packages/custom_control_pkg/controller_test.py to controller_test.cpython-310.pyc
+byte-compiling /root/ws/install/custom_control_pkg/lib/python3.10/site-packages/custom_control_pkg/controller_pid.py to controller_pid.cpython-310.pyc
+running install_data
+creating /root/ws/install/custom_control_pkg/share/ament_index
+creating /root/ws/install/custom_control_pkg/share/ament_index/resource_index
+creating /root/ws/install/custom_control_pkg/share/ament_index/resource_index/packages
+copying resource/custom_control_pkg -> /root/ws/install/custom_control_pkg/share/ament_index/resource_index/packages
+copying package.xml -> /root/ws/install/custom_control_pkg/share/custom_control_pkg
+running install_egg_info
+Copying ../../build/custom_control_pkg/custom_control_pkg.egg-info to /root/ws/install/custom_control_pkg/lib/python3.10/site-packages/custom_control_pkg-0.0.1-py3.10.egg-info
+running install_scripts
+Installing run_bypass_test script to /root/ws/install/custom_control_pkg/lib/custom_control_pkg
+Installing run_lqr script to /root/ws/install/custom_control_pkg/lib/custom_control_pkg
+Installing run_pid script to /root/ws/install/custom_control_pkg/lib/custom_control_pkg
+writing list of installed files to '/root/ws/build/custom_control_pkg/install.log'

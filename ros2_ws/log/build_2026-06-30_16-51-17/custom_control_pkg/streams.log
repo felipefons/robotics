@@ -1,0 +1,26 @@
+[0.305s] Invoking command in '/root/ws/src/custom_control_pkg': AMENT_PREFIX_PATH=/root/ws/install/px4_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/ws/install/px4_msgs LD_LIBRARY_PATH=/root/ws/install/px4_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/root/ws/build/custom_control_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/ws/install/custom_control_pkg/lib/python3.10/site-packages:/root/ws/install/px4_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/custom_control_pkg build --build-base /root/ws/build/custom_control_pkg/build install --record /root/ws/build/custom_control_pkg/install.log --single-version-externally-managed install_data
+[0.423s] running egg_info
+[0.423s] writing ../../build/custom_control_pkg/custom_control_pkg.egg-info/PKG-INFO
+[0.423s] writing dependency_links to ../../build/custom_control_pkg/custom_control_pkg.egg-info/dependency_links.txt
+[0.424s] writing entry points to ../../build/custom_control_pkg/custom_control_pkg.egg-info/entry_points.txt
+[0.424s] writing requirements to ../../build/custom_control_pkg/custom_control_pkg.egg-info/requires.txt
+[0.424s] writing top-level names to ../../build/custom_control_pkg/custom_control_pkg.egg-info/top_level.txt
+[0.425s] reading manifest file '../../build/custom_control_pkg/custom_control_pkg.egg-info/SOURCES.txt'
+[0.425s] writing manifest file '../../build/custom_control_pkg/custom_control_pkg.egg-info/SOURCES.txt'
+[0.425s] running build
+[0.425s] running build_py
+[0.426s] copying custom_control_pkg/controller_test.py -> /root/ws/build/custom_control_pkg/build/lib/custom_control_pkg
+[0.426s] running install
+[0.426s] running install_lib
+[0.427s] copying /root/ws/build/custom_control_pkg/build/lib/custom_control_pkg/controller_test.py -> /root/ws/install/custom_control_pkg/lib/python3.10/site-packages/custom_control_pkg
+[0.427s] byte-compiling /root/ws/install/custom_control_pkg/lib/python3.10/site-packages/custom_control_pkg/controller_test.py to controller_test.cpython-310.pyc
+[0.427s] running install_data
+[0.427s] running install_egg_info
+[0.428s] removing '/root/ws/install/custom_control_pkg/lib/python3.10/site-packages/custom_control_pkg-0.0.1-py3.10.egg-info' (and everything under it)
+[0.429s] Copying ../../build/custom_control_pkg/custom_control_pkg.egg-info to /root/ws/install/custom_control_pkg/lib/python3.10/site-packages/custom_control_pkg-0.0.1-py3.10.egg-info
+[0.429s] running install_scripts
+[0.440s] Installing run_bypass_test script to /root/ws/install/custom_control_pkg/lib/custom_control_pkg
+[0.441s] Installing run_lqr script to /root/ws/install/custom_control_pkg/lib/custom_control_pkg
+[0.441s] Installing run_pid script to /root/ws/install/custom_control_pkg/lib/custom_control_pkg
+[0.441s] writing list of installed files to '/root/ws/build/custom_control_pkg/install.log'
+[0.452s] Invoked command in '/root/ws/src/custom_control_pkg' returned '0': AMENT_PREFIX_PATH=/root/ws/install/px4_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/ws/install/px4_msgs LD_LIBRARY_PATH=/root/ws/install/px4_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/root/ws/build/custom_control_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/ws/install/custom_control_pkg/lib/python3.10/site-packages:/root/ws/install/px4_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/custom_control_pkg build --build-base /root/ws/build/custom_control_pkg/build install --record /root/ws/build/custom_control_pkg/install.log --single-version-externally-managed install_data

@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: custom-control-pkg
+Version: 0.0.1
+Summary: Custom PID, LQR, and Rate Control Bypassing Node for PX4 Integration
+Home-page: UNKNOWN
+Maintainer: root
+Maintainer-email: root@todo.todo
+License: Apache License 2.0
+Platform: UNKNOWN
+
+UNKNOWN
+
